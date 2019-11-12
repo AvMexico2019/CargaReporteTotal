@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ArrendamientoInmuebleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ReporteTotal">
+          <Key>
+            <PropertyRef Name="NumeroSecuencial" />
+          </Key>
+          <Property Name="NumeroSecuencial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Fk_IdInstitucion" Type="int" Nullable="false" />
+          <Property Name="No" Type="int" Nullable="false" />
+          <Property Name="FolioContrato" Type="int" Nullable="false" />
+          <Property Name="FolioContratoAnterior" Type="int" />
+          <Property Name="TipoContrato" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipoOcupacion" Type="nvarchar" MaxLength="50" />
+          <Property Name="Secuencial" Type="nvarchar" MaxLength="50" />
+          <Property Name="Propietario" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FechaDictamen" Type="datetime" />
+          <Property Name="Responsable" Type="nvarchar" MaxLength="250" />
+          <Property Name="Sector" Type="nvarchar" MaxLength="50" />
+          <Property Name="Promovente" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="FkIdPais" Type="int" Nullable="false" />
+          <Property Name="Pais" Type="int" Nullable="false" />
+          <Property Name="Fk_IdEstado" Type="int" />
+          <Property Name="Estado" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fk_IdMunicipio" Type="int" />
+          <Property Name="Municipio" Type="nvarchar" MaxLength="250" />
+          <Property Name="Fk_IdLocalidad" Type="int" />
+          <Property Name="RetrieveBusColonia" Type="smallint" Nullable="false" />
+          <Property Name="Colonia" Type="nvarchar" MaxLength="250" />
+          <Property Name="Calle" Type="nvarchar" MaxLength="250" />
+          <Property Name="CodigoPostal" Type="nvarchar" MaxLength="250" />
+          <Property Name="NumInterior" Type="nvarchar" MaxLength="250" />
+          <Property Name="NumExterior" Type="nvarchar" MaxLength="250" />
+          <Property Name="Ciudad" Type="nvarchar" MaxLength="250" />
+          <Property Name="MontoDictaminado" Type="money" Nullable="false" />
+          <Property Name="FechaContratoDesde" Type="datetime" Nullable="false" />
+          <Property Name="FechaCntratoHasta" Type="datetime" Nullable="false" />
+          <Property Name="Fk_IdTipoArrendamiento" Type="smallint" Nullable="false" />
+          <Property Name="DescripcionTipoArrendamiento" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fk_IdTipoInmueble" Type="smallint" Nullable="false" />
+          <Property Name="TipoInmueble" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MontoPagoPorCajonesEstacionamiento" Type="money" Nullable="false" />
+          <Property Name="Fk_IdTipoContratacion" Type="int" />
+          <Property Name="DescripcionTipoContratacion" Type="nvarchar" MaxLength="250" />
+          <Property Name="RentaUnitariaMensual" Type="money" />
+          <Property Name="MontoPagoMensual" Type="money" />
+          <Property Name="CuotaMantenimiento" Type="money" />
+          <Property Name="AreaOcupadaM2" Type="float" />
+          <Property Name="Fk_IdTipoUsoInmueble" Type="int" Nullable="false" />
+          <Property Name="TipoUsoInmueble" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OtroUsoInmueble" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="TablaSMOI" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ResultadosOpinion" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MontoAnterior" Type="money" Nullable="false" />
+          <Property Name="SMOI" Type="float" Nullable="false" />
+          <Property Name="Fecha" Type="datetime" />
+          <Property Name="RIUF" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GeoRefLatitud" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="GeoRefLongitud" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ArrendamientoInmuebleModelStoreContainer">
+          <EntitySet Name="ReporteTotal" EntityType="Self.ReporteTotal" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArrendamientoInmuebleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ReporteTotal">
+          <Key>
+            <PropertyRef Name="NumeroSecuencial" />
+          </Key>
+          <Property Name="NumeroSecuencial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Fk_IdInstitucion" Type="Int32" Nullable="false" />
+          <Property Name="No" Type="Int32" Nullable="false" />
+          <Property Name="FolioContrato" Type="Int32" Nullable="false" />
+          <Property Name="FolioContratoAnterior" Type="Int32" />
+          <Property Name="TipoContrato" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipoOcupacion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Secuencial" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Propietario" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FechaDictamen" Type="DateTime" Precision="3" />
+          <Property Name="Responsable" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Sector" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Promovente" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FkIdPais" Type="Int32" Nullable="false" />
+          <Property Name="Pais" Type="Int32" Nullable="false" />
+          <Property Name="Fk_IdEstado" Type="Int32" />
+          <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fk_IdMunicipio" Type="Int32" />
+          <Property Name="Municipio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Fk_IdLocalidad" Type="Int32" />
+          <Property Name="RetrieveBusColonia" Type="Int16" Nullable="false" />
+          <Property Name="Colonia" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Calle" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CodigoPostal" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NumInterior" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="NumExterior" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Ciudad" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MontoDictaminado" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="FechaContratoDesde" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaCntratoHasta" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Fk_IdTipoArrendamiento" Type="Int16" Nullable="false" />
+          <Property Name="DescripcionTipoArrendamiento" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Fk_IdTipoInmueble" Type="Int16" Nullable="false" />
+          <Property Name="TipoInmueble" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MontoPagoPorCajonesEstacionamiento" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Fk_IdTipoContratacion" Type="Int32" />
+          <Property Name="DescripcionTipoContratacion" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="RentaUnitariaMensual" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="MontoPagoMensual" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="CuotaMantenimiento" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="AreaOcupadaM2" Type="Double" />
+          <Property Name="Fk_IdTipoUsoInmueble" Type="Int32" Nullable="false" />
+          <Property Name="TipoUsoInmueble" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OtroUsoInmueble" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TablaSMOI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ResultadosOpinion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MontoAnterior" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="SMOI" Type="Double" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Precision="3" />
+          <Property Name="RIUF" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GeoRefLatitud" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GeoRefLongitud" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ArrendamientoInmuebleEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ReporteTotal" EntityType="Self.ReporteTotal" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArrendamientoInmuebleModelStoreContainer" CdmEntityContainer="ArrendamientoInmuebleEntities">
+          <EntitySetMapping Name="ReporteTotal">
+            <EntityTypeMapping TypeName="ArrendamientoInmuebleModel.ReporteTotal">
+              <MappingFragment StoreEntitySet="ReporteTotal">
+                <ScalarProperty Name="NumeroSecuencial" ColumnName="NumeroSecuencial" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Fk_IdInstitucion" ColumnName="Fk_IdInstitucion" />
+                <ScalarProperty Name="No" ColumnName="No" />
+                <ScalarProperty Name="FolioContrato" ColumnName="FolioContrato" />
+                <ScalarProperty Name="FolioContratoAnterior" ColumnName="FolioContratoAnterior" />
+                <ScalarProperty Name="TipoContrato" ColumnName="TipoContrato" />
+                <ScalarProperty Name="TipoOcupacion" ColumnName="TipoOcupacion" />
+                <ScalarProperty Name="Secuencial" ColumnName="Secuencial" />
+                <ScalarProperty Name="Propietario" ColumnName="Propietario" />
+                <ScalarProperty Name="FechaDictamen" ColumnName="FechaDictamen" />
+                <ScalarProperty Name="Responsable" ColumnName="Responsable" />
+                <ScalarProperty Name="Sector" ColumnName="Sector" />
+                <ScalarProperty Name="Promovente" ColumnName="Promovente" />
+                <ScalarProperty Name="FkIdPais" ColumnName="FkIdPais" />
+                <ScalarProperty Name="Pais" ColumnName="Pais" />
+                <ScalarProperty Name="Fk_IdEstado" ColumnName="Fk_IdEstado" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Fk_IdMunicipio" ColumnName="Fk_IdMunicipio" />
+                <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+                <ScalarProperty Name="Fk_IdLocalidad" ColumnName="Fk_IdLocalidad" />
+                <ScalarProperty Name="RetrieveBusColonia" ColumnName="RetrieveBusColonia" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="CodigoPostal" ColumnName="CodigoPostal" />
+                <ScalarProperty Name="NumInterior" ColumnName="NumInterior" />
+                <ScalarProperty Name="NumExterior" ColumnName="NumExterior" />
+                <ScalarProperty Name="Ciudad" ColumnName="Ciudad" />
+                <ScalarProperty Name="MontoDictaminado" ColumnName="MontoDictaminado" />
+                <ScalarProperty Name="FechaContratoDesde" ColumnName="FechaContratoDesde" />
+                <ScalarProperty Name="FechaCntratoHasta" ColumnName="FechaCntratoHasta" />
+                <ScalarProperty Name="Fk_IdTipoArrendamiento" ColumnName="Fk_IdTipoArrendamiento" />
+                <ScalarProperty Name="DescripcionTipoArrendamiento" ColumnName="DescripcionTipoArrendamiento" />
+                <ScalarProperty Name="Fk_IdTipoInmueble" ColumnName="Fk_IdTipoInmueble" />
+                <ScalarProperty Name="TipoInmueble" ColumnName="TipoInmueble" />
+                <ScalarProperty Name="MontoPagoPorCajonesEstacionamiento" ColumnName="MontoPagoPorCajonesEstacionamiento" />
+                <ScalarProperty Name="Fk_IdTipoContratacion" ColumnName="Fk_IdTipoContratacion" />
+                <ScalarProperty Name="DescripcionTipoContratacion" ColumnName="DescripcionTipoContratacion" />
+                <ScalarProperty Name="RentaUnitariaMensual" ColumnName="RentaUnitariaMensual" />
+                <ScalarProperty Name="MontoPagoMensual" ColumnName="MontoPagoMensual" />
+                <ScalarProperty Name="CuotaMantenimiento" ColumnName="CuotaMantenimiento" />
+                <ScalarProperty Name="AreaOcupadaM2" ColumnName="AreaOcupadaM2" />
+                <ScalarProperty Name="Fk_IdTipoUsoInmueble" ColumnName="Fk_IdTipoUsoInmueble" />
+                <ScalarProperty Name="TipoUsoInmueble" ColumnName="TipoUsoInmueble" />
+                <ScalarProperty Name="OtroUsoInmueble" ColumnName="OtroUsoInmueble" />
+                <ScalarProperty Name="TablaSMOI" ColumnName="TablaSMOI" />
+                <ScalarProperty Name="ResultadosOpinion" ColumnName="ResultadosOpinion" />
+                <ScalarProperty Name="MontoAnterior" ColumnName="MontoAnterior" />
+                <ScalarProperty Name="SMOI" ColumnName="SMOI" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="RIUF" ColumnName="RIUF" />
+                <ScalarProperty Name="GeoRefLatitud" ColumnName="GeoRefLatitud" />
+                <ScalarProperty Name="GeoRefLongitud" ColumnName="GeoRefLongitud" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

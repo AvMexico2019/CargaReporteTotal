@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.902
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargaReporteTotal", "CargaReporteTotal\CargaReporteTotal.csproj", "{56FC00B3-1145-4448-B166-60D2B2B6B4A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMoneyToDecimal", "TestMoneyToDecimal\TestMoneyToDecimal.csproj", "{8411FAD2-8ADB-4518-B986-1447F5255496}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{56FC00B3-1145-4448-B166-60D2B2B6B4A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56FC00B3-1145-4448-B166-60D2B2B6B4A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56FC00B3-1145-4448-B166-60D2B2B6B4A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8411FAD2-8ADB-4518-B986-1447F5255496}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8411FAD2-8ADB-4518-B986-1447F5255496}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8411FAD2-8ADB-4518-B986-1447F5255496}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8411FAD2-8ADB-4518-B986-1447F5255496}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
