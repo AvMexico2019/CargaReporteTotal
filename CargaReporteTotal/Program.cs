@@ -11,7 +11,35 @@ namespace CargaReporteTotal
     {
         static string inputFile = @"D:\Contratos de Arrendamiento Documentos\reporte total\Reporte Total.txt";
 
-        static public Decimal DineroADecimal(string monto)
+        static public string CleanExcelString(string input)
+        {
+            char[] QuitaChars = { '"', ' ' , '\\'};
+            input = input.Trim(QuitaChars);
+            int pos;
+            while ((pos = input.IndexOf(',')) >= 0)
+            {
+                input = input.Remove(pos, 1);
+            }
+            while ((pos = input.IndexOf('\\')) >= 0)
+            {
+                input = input.Remove(pos, 1);
+            }
+            while ((pos = input.IndexOf('$')) >= 0)
+            {
+                input = input.Remove(pos, 1);
+            }
+            while ((pos = input.IndexOf(' ')) >= 0)
+            {
+                input = input.Remove(pos, 1);
+            }
+            while ((pos = input.IndexOf('"')) >= 0)
+            {
+                input = input.Remove(pos, 1);
+            }
+            return input;
+        }
+
+        static public Decimal DineroADecimal(int index, string monto)
         {
             if (IsExcelNull(monto))
             {
@@ -19,21 +47,43 @@ namespace CargaReporteTotal
             }
             else
             {
-                Console.WriteLine("--" + monto);
-                monto = monto.Trim('"');
-                int pos;
-                while ((pos = monto.IndexOf(',')) >= 0)
-                {
-                    monto = monto.Remove(pos, 1);
-                }
-                while ((pos = monto.IndexOf('$')) >= 0)
-                {
-                    monto = monto.Remove(pos, 1);
-                }
+                Console.WriteLine("-" + index + "-" + monto);
+                monto = CleanExcelString(monto);
                 Console.WriteLine("--" + monto);
                 return Convert.ToDecimal(monto);
             }   
         }
+
+        static public Decimal ExcelNumeroADecimal(int index, string monto)
+        {
+            if (IsExcelNull(monto))
+            {
+                return (Decimal)0.0;
+            }
+            else
+            {
+                Console.WriteLine("-" + index + "-" + monto);
+                monto = CleanExcelString(monto);
+                Console.WriteLine("--" + monto);
+                return Convert.ToDecimal(monto);
+            }
+        }
+
+        static public Double ExcelNumeroADouble(int index, string monto)
+        {
+            if (IsExcelNull(monto))
+            {
+                return (Double)0.0;
+            }
+            else
+            {
+                Console.WriteLine("-" + index + "-" + monto);
+                monto = CleanExcelString(monto);
+                Console.WriteLine("--" + monto);
+                return Convert.ToDouble(monto);
+            }
+        }
+
 
         static public bool IsExcelNull(string valor)
         {
@@ -55,9 +105,9 @@ namespace CargaReporteTotal
                     {
                         contratos++;
                         string line = reader.ReadLine();
-                        Console.WriteLine("-" + (contratos + 1) + " " + line);
+//                        Console.WriteLine("-" + (contratos + 1) + " " + line);
                         string[] values = line.Split('\t');
-
+/*
                         int Id = Int32.Parse(values[0]);
                         int Fk_IdInstitucion = Int32.Parse(values[1]);
                         int No = Int32.Parse(values[2]);
@@ -85,32 +135,32 @@ namespace CargaReporteTotal
                         string NumInterior = values[24] ;
                         string NumExterior = values[25] ;
                         string Ciudad = values[26] ;
-                        decimal  MontoDictaminado = DineroADecimal(values[27])  ;
+                        decimal  MontoDictaminado = DineroADecimal(27,values[27])  ;
                         DateTime FechaContratoDesde = Convert.ToDateTime(values[28]) ;
                         DateTime FechaCntratoHasta = Convert.ToDateTime(values[29])  ;
                         int  Fk_IdTipoArrendamiento = Convert.ToInt16(values[30])  ;
                         string DescripcionTipoArrendamiento = values[31]  ;
                         int  Fk_IdTipoInmueble = Convert.ToInt16(values[32])  ;
                         string TipoInmueble = values[33]  ;
-                        decimal  MontoPagoPorCajonesEstacionamiento = DineroADecimal(values[34])  ;
+                        decimal  MontoPagoPorCajonesEstacionamiento = DineroADecimal(34,values[34])  ;
                         int  Fk_IdTipoContratacion = Convert.ToInt32(IsExcelNull(values[35]) ? "-1" : values[35]);
                         string DescripcionTipoContratacion = values[36] ;
-                        decimal  RentaUnitariaMensual = DineroADecimal(values[37]);
-                        decimal  MontoPagoMensual = DineroADecimal(values[38]);
-                        decimal  CuotaMantenimiento = DineroADecimal(values[39]);
-                        double  AreaOcupadaM2 = Convert.ToDouble(IsExcelNull(values[40]) ? "-1" : values[40]);
+                        decimal  RentaUnitariaMensual = DineroADecimal(37, values[37]);
+                        decimal  MontoPagoMensual = DineroADecimal(38, values[38]);
+                        decimal  CuotaMantenimiento = DineroADecimal(39, values[39]);
+                        double  AreaOcupadaM2 = ExcelNumeroADouble(40, values[40]);
                         int  Fk_IdTipoUsoInmueble = Convert.ToInt32(values[41])  ;
                         string TipoUsoInmueble = values[42]  ;
                         string OtroUsoInmueble = values[43]  ;
                         string TablaSMOI = values[44]  ;
                         string ResultadosOpinion = values[45]  ;
-                        decimal  MontoAnterior = DineroADecimal(values[46])  ;
-                        double  SMOI = Convert.ToDouble(values[47])  ;
+                        decimal  MontoAnterior = DineroADecimal(46, values[46])  ;
+                        double  SMOI = ExcelNumeroADouble(47, values[47])  ;
                         DateTime Fecha = Convert.ToDateTime(IsExcelNull(values[48]) ? "1-1-1900" : values[48]);
                         string RIUF = values[49]  ;
                         decimal GeoRefLatitud = Convert.ToDecimal(IsExcelNull(values[50]) ? "0.0" : values[50]);
                         decimal GeoRefLongitud = Convert.ToDecimal(IsExcelNull(values[51]) ? "0.0" : values[51]);
-
+*/
 
                         var reporteTotal = new ReporteTotal()
                         {
@@ -142,31 +192,31 @@ namespace CargaReporteTotal
                           NumInterior = values[24] ,
                           NumExterior = values[25] ,
                           Ciudad = values[26] ,
-                          MontoDictaminado = DineroADecimal(values[27])  ,
+                          MontoDictaminado = DineroADecimal(27, values[27])  ,
                           FechaContratoDesde = Convert.ToDateTime(values[28] ) ,
                           FechaCntratoHasta = Convert.ToDateTime(values[29])  ,
                           Fk_IdTipoArrendamiento = Convert.ToInt16(values[30])  ,
                           DescripcionTipoArrendamiento = values[31]  ,
                           Fk_IdTipoInmueble = Convert.ToInt16(values[32])  ,
                           TipoInmueble = values[33]  ,
-                          MontoPagoPorCajonesEstacionamiento = DineroADecimal(values[34])  ,
+                          MontoPagoPorCajonesEstacionamiento = DineroADecimal(34, values[34])  ,
                           Fk_IdTipoContratacion = Convert.ToInt32(IsExcelNull(values[35]) ? "-1" : values[35]),
                           DescripcionTipoContratacion = values[36] ,
-                          RentaUnitariaMensual = DineroADecimal(values[37]),
-                          MontoPagoMensual = DineroADecimal(values[38]),
-                          CuotaMantenimiento = DineroADecimal(values[39]),
-                          AreaOcupadaM2 = Convert.ToDouble(IsExcelNull(values[40]) ? "-1" : values[40]),
+                          RentaUnitariaMensual = DineroADecimal(37, values[37]),
+                          MontoPagoMensual = DineroADecimal(38, values[38]),
+                          CuotaMantenimiento = DineroADecimal(39, values[39]),
+                          AreaOcupadaM2 = ExcelNumeroADouble(40, values[40]),
                           Fk_IdTipoUsoInmueble = Convert.ToInt32(values[41])  ,
                           TipoUsoInmueble = values[42]  ,
                           OtroUsoInmueble = values[43]  ,
                           TablaSMOI = values[44]  ,
                           ResultadosOpinion = values[45]  ,
-                          MontoAnterior = DineroADecimal(values[46])  ,
-                          SMOI = Convert.ToDouble(values[47])  ,
+                          MontoAnterior = DineroADecimal(46, values[46])  ,
+                          SMOI = ExcelNumeroADouble(47, values[47])  ,
                           Fecha = Convert.ToDateTime(IsExcelNull(values[48]) ? "1-1-1900" : values[48]),
                           RIUF = values[49]  ,
-                          GeoRefLatitud = Convert.ToDecimal(IsExcelNull(values[50]) ? "0.0" : values[50]),
-                          GeoRefLongitud = Convert.ToDecimal(IsExcelNull(values[51]) ? "0.0" : values[51])
+                          GeoRefLatitud = ExcelNumeroADecimal(50, values[50]),
+                          GeoRefLongitud = ExcelNumeroADecimal(51, values[51])
  
                         };
                         ctx.ReporteTotal.Add(reporteTotal);
